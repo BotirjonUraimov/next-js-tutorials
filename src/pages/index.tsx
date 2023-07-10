@@ -10,7 +10,7 @@ export default function IndexPage() {
         <title>HomePage</title>
       </Head>
 
-      <Button>Click</Button>
+      <Button sx={{ top: "70px" }}>Click</Button>
     </Layout>
   );
 }
