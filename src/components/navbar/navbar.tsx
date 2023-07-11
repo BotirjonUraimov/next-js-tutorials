@@ -35,7 +35,6 @@ export default function Navbar({ window }: Props) {
         }}
       >
         {" "}
-        <img src="/next.webp" alt="" />
         <Typography variant="h5" sx={{ my: 2, fontWeight: "700" }}>
           Next JS
         </Typography>
@@ -56,9 +55,12 @@ export default function Navbar({ window }: Props) {
   );
   return (
     <Box>
-      <Box sx={{ display: "flex" }}>
-        <AppBar component="nav">
-          <Toolbar>
+      <Box sx={{ display: "flex", height: "8vh" }}>
+        <AppBar
+          sx={{ height: "8vh", backgroundColor: "#141414" }}
+          component="nav"
+        >
+          <Toolbar sx={{ height: "8vh" }}>
             <IconButton
               color="inherit"
               aria-label="open drawer"

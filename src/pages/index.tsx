@@ -2,6 +2,7 @@ import { Button } from "@mui/material";
 import Head from "next/head";
 import React from "react";
 import Layout from "../layout/layout";
+import { Hero } from "../components";
 
 export default function IndexPage() {
   return (
@@ -10,7 +11,7 @@ export default function IndexPage() {
         <title>HomePage</title>
       </Head>
 
-      <Button sx={{ top: "70px" }}>Click</Button>
+      <Hero />
     </Layout>
   );
 }

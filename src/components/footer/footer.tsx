@@ -13,7 +13,7 @@ export default function Footer() {
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
-          backgroundColor: "primary.main",
+          backgroundColor: "#141414",
           color: "white",
           marginTop: "200px",
           paddingX: "20px",
