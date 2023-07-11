@@ -31,7 +31,7 @@ export default function Sidebar() {
   return (
     <Box
       sx={{
-        width: "30%",
+        width: { xs: "100%", md: "30%" },
       }}
     >
       <Box
