@@ -38,7 +38,11 @@ export default function Navbar({ window }: Props) {
         }}
       >
         {" "}
-        <Typography variant="h5" sx={{ my: 2, fontWeight: "700" }}>
+        <Typography
+          variant="h5"
+          sx={{ my: 2, fontWeight: "700", cursor: "pointer" }}
+          onClick={() => router.push(`/`)}
+        >
           Next JS
         </Typography>
         <CloseIcon />
@@ -82,7 +86,9 @@ export default function Navbar({ window }: Props) {
               sx={{
                 flexGrow: 1,
                 display: { xs: "none", sm: "block", fontWeight: "700" },
+                cursor: "pointer",
               }}
+              onClick={() => router.push(`/`)}
             >
               Next JS
             </Typography>

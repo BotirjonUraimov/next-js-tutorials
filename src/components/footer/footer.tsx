@@ -15,8 +15,9 @@ export default function Footer() {
           alignItems: "center",
           backgroundColor: "#141414",
           color: "white",
-          marginTop: "200px",
+
           paddingX: "20px",
+          borderTop: "1px solid rgba(255, 255, 255, .5)",
         }}
       >
         <Typography>
@@ -31,3 +32,5 @@ export default function Footer() {
     </>
   );
 }
+
+4;

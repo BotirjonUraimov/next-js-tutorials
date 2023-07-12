@@ -41,7 +41,7 @@ export const BlogsService = {
   async getLatestBlog() {
     const query = gql`
       query GetLatestBlog {
-        blogs(last: 2) {
+        blogs(last: 3) {
           id
           slug
           title
