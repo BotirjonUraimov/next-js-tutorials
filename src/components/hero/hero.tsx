@@ -78,7 +78,9 @@ const Hero = ({ blogs }: HeroProps) => {
                     <Typography>{item.author.name}</Typography>
                     <Box>
                       {format(new Date(item.createdAt), "dd MMM, yyyy")}{" "}
-                      &#x2022; read
+                      &#x2022;{" "}
+                      {calculateEstimatedTimeToRead(item.description.text)}{" "}
+                      minutes read
                     </Box>
                   </Box>
                 </Box>

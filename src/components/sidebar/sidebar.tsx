@@ -4,6 +4,7 @@ import React, { Fragment } from "react";
 import Image from "next/image";
 import { format } from "date-fns";
 import { SidebarProps } from "./sidebar.props";
+import { calculateEstimatedTimeToRead } from "@/src/helpers/time.format";
 
 const data = [
   {
@@ -105,7 +106,9 @@ export default function Sidebar({ latestBlogs, categories }: SidebarProps) {
                         </Typography>
                         <Box sx={{ opacity: 0.4 }}>
                           {format(new Date(item.createdAt), "dd MMM, yyyy")}{" "}
-                          &#x2022; read
+                          &#x2022;{" "}
+                          {calculateEstimatedTimeToRead(item.description.text)}{" "}
+                          minutes read
                         </Box>
                       </Box>
                     </Box>

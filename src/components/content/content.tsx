@@ -3,6 +3,7 @@ import { format } from "date-fns";
 import Image from "next/image";
 import React from "react";
 import { ContentProps } from "./content.props";
+import { calculateEstimatedTimeToRead } from "@/src/helpers/time.format";
 
 export default function Content({ blogs }: ContentProps) {
   return (
@@ -49,7 +50,9 @@ export default function Content({ blogs }: ContentProps) {
             <Box>
               <Typography variant="body2">{item.author.name}</Typography>
               <Box sx={{ opacity: 0.4 }}>
-                {format(new Date(item.createdAt), "dd MMM, yyyy")} &#x2022; read
+                {format(new Date(item.createdAt), "dd MMM, yyyy")} &#x2022;{" "}
+                {calculateEstimatedTimeToRead(item.description.text)} minutes
+                read
               </Box>
             </Box>
           </Box>
