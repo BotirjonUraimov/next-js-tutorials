@@ -58,6 +58,7 @@ export default function Sidebar({ latestBlogs, categories }: SidebarProps) {
                   key={nav.slug}
                   fullWidth
                   sx={{ justifyContent: "flex-start", height: "50px" }}
+                  onClick={() => router.push(`/category/${nav.slug}`)}
                 >
                   {nav.label}
                 </Button>
