@@ -7,34 +7,30 @@ import { BlogsService } from "../services/blog.service";
 import { GetServerSideProps } from "next";
 import { BlogsType } from "../interfaces/blogs.interface";
 import { CategoryType } from "../interfaces/categories.interface";
+import SEO from "../layout/seo/seo";
 
 export default function IndexPage({
   blogs,
   latestBlogs,
   categories,
 }: HomePageProps) {
-  console.log("::::::::::::::::::::::", latestBlogs);
-
   return (
-    <Layout>
-      <Head>
-        <title>HomePage</title>
-      </Head>
-      <Hero blogs={blogs.slice(0, 3)} />{" "}
-      {/* Pass the latestBlogs data to the Hero component */}
-      <Box
-        sx={{
-          display: "flex",
-          gap: "20px",
-          flexDirection: { xs: "column", md: "row" },
-          padding: "20px",
-        }}
-      >
-        <Sidebar latestBlogs={latestBlogs} categories={categories} />{" "}
-        {/* Pass the latestBlogs data to the Sidebar component */}
-        <Content blogs={blogs} />
-      </Box>
-    </Layout>
+    <SEO>
+      <Layout>
+        <Hero blogs={blogs.slice(0, 3)} />{" "}
+        <Box
+          sx={{
+            display: "flex",
+            gap: "20px",
+            flexDirection: { xs: "column", md: "row" },
+            padding: "20px",
+          }}
+        >
+          <Sidebar latestBlogs={latestBlogs} categories={categories} />{" "}
+          <Content blogs={blogs} />
+        </Box>
+      </Layout>
+    </SEO>
   );
 }
 

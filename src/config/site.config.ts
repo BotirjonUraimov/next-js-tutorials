@@ -1,6 +1,6 @@
 export const siteConfig = {
-  metaTitle: "Sammi blogs",
+  metaTitle: "Botirjon Blogs",
   metaDescription: "All blogs about IT",
-  author: "Samar Badriddinov",
-  metaKeywords: "blogs, sammi",
+  author: "Botirjon Uraimov",
+  metaKeywords: "blogs, Botirjon",
 };
