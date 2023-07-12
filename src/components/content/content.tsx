@@ -4,8 +4,11 @@ import Image from "next/image";
 import React from "react";
 import { ContentProps } from "./content.props";
 import { calculateEstimatedTimeToRead } from "@/src/helpers/time.format";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
 export default function Content({ blogs }: ContentProps) {
+  const router = useRouter();
   return (
     <Box sx={{ width: { xs: "100%", md: "70%" } }}>
       {blogs.map((item) => (
@@ -17,7 +20,9 @@ export default function Content({ blogs }: ContentProps) {
             mt: "20px",
             borderRadius: "8px",
             boxShadow: "0px 8px 16px rgba(255,255,255,.2)",
+            cursor: "pointer",
           }}
+          onClick={() => router.push(`/blog/${item.slug}`)}
         >
           <Box
             position={"relative"}

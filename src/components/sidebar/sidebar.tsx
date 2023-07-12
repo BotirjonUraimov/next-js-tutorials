@@ -5,6 +5,7 @@ import Image from "next/image";
 import { format } from "date-fns";
 import { SidebarProps } from "./sidebar.props";
 import { calculateEstimatedTimeToRead } from "@/src/helpers/time.format";
+import { useRouter } from "next/router";
 
 const data = [
   {
@@ -30,6 +31,7 @@ const data = [
 ];
 
 export default function Sidebar({ latestBlogs, categories }: SidebarProps) {
+  const router = useRouter();
   return (
     <Box
       sx={{
@@ -75,7 +77,11 @@ export default function Sidebar({ latestBlogs, categories }: SidebarProps) {
           <Typography variant="h5">Latest Blogs</Typography>
           <Box sx={{ display: "flex", flexDirection: "column", mt: "20px" }}>
             {latestBlogs.map((item) => (
-              <Box key={item.id} sx={{ mt: "20px" }}>
+              <Box
+                key={item.id}
+                sx={{ mt: "20px", cursor: "pointer" }}
+                onClick={() => router.push(`/blog/${item.slug}`)}
+              >
                 <Box
                   sx={{ display: "flex", gap: "20px", alignItems: "center" }}
                 >
