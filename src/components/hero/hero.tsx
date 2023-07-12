@@ -20,15 +20,15 @@ const Hero = ({ blogs }: HeroProps) => {
           },
         }}
       >
-        {data.map((item: any) => (
+        {blogs.map((item) => (
           <Box
-            key={item.image}
+            key={item.id}
             sx={{ cursor: "pointer" }}
             onClick={() => router.push(`/blog/${item.slug}`)}
           >
             <Box sx={{ position: "relative", width: "100%", height: "70vh" }}>
               <Image
-                src={item.image}
+                src={item.image.url}
                 alt={item.title}
                 fill
                 style={{ objectFit: "cover" }}
@@ -63,7 +63,7 @@ const Hero = ({ blogs }: HeroProps) => {
                   color={"gray"}
                   sx={{ fontSize: { xs: "20px", md: "25px" } }}
                 >
-                  {item.exerpt}
+                  {item.excerpt}
                 </Typography>
                 <Box
                   sx={{
@@ -73,11 +73,12 @@ const Hero = ({ blogs }: HeroProps) => {
                     marginTop: "20px",
                   }}
                 >
-                  <Avatar alt={item.author.name} src={item.author.image} />
+                  <Avatar alt={item.author.name} src={item.author.avatar.url} />
                   <Box>
                     <Typography>{item.author.name}</Typography>
                     <Box>
-                      {format(new Date(), "dd MMM, yyyy")} &#x2022; read
+                      {format(new Date(item.createdAt), "dd MMM, yyyy")}{" "}
+                      &#x2022; read
                     </Box>
                   </Box>
                 </Box>
@@ -91,25 +92,25 @@ const Hero = ({ blogs }: HeroProps) => {
 };
 export default Hero;
 
-const data = [
-  {
-    image: "https://media.graphassets.com/MxJZhmooRRuudoErkQ38",
-    title: "Technical SEO with Hygraph",
-    exerpt:
-      "Get started with your SEO implementation when using a Headless CMS",
-    author: {
-      name: "Samar Badriddinov",
-      image: "https://media.graphassets.com/DkfNqQNGRz2F4UFntKQx",
-    },
-  },
-  {
-    image: "https://media.graphassets.com/bh3K2NNtTHCN260Xfq9h",
-    title: "Union Types and Sortable Relations with Hygraph",
-    exerpt:
-      "Learn more about Polymorphic Relations and Sortable Relations with Hygraph",
-    author: {
-      name: "Samar Badriddinov",
-      image: "https://media.graphassets.com/DkfNqQNGRz2F4UFntKQx",
-    },
-  },
-];
+// const data = [
+//   {
+//     image: "https://media.graphassets.com/MxJZhmooRRuudoErkQ38",
+//     title: "Technical SEO with Hygraph",
+//     exerpt:
+//       "Get started with your SEO implementation when using a Headless CMS",
+//     author: {
+//       name: "Uraimov Botirjon",
+//       image: "https://media.graphassets.com/DkfNqQNGRz2F4UFntKQx",
+//     },
+//   },
+//   {
+//     image: "https://media.graphassets.com/bh3K2NNtTHCN260Xfq9h",
+//     title: "Union Types and Sortable Relations with Hygraph",
+//     exerpt:
+//       "Learn more about Polymorphic Relations and Sortable Relations with Hygraph",
+//     author: {
+//       name: "Uraimov Botirjon",
+//       image: "https://media.graphassets.com/DkfNqQNGRz2F4UFntKQx",
+//     },
+//   },
+// ];
