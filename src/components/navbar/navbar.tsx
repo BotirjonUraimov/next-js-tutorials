@@ -10,6 +10,7 @@ import Button from "@mui/material/Button";
 import React from "react";
 import { navItem } from "@/src/config/constants";
 import CloseIcon from "@mui/icons-material/Close";
+import { useRouter } from "next/router";
 
 interface Props {
   window?: () => Window;
@@ -17,6 +18,8 @@ interface Props {
 const drawerWidth = 240;
 export default function Navbar({ window }: Props) {
   const [mobileOpen, setMobileOpen] = React.useState(false);
+
+  const router = useRouter();
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
@@ -46,7 +49,10 @@ export default function Navbar({ window }: Props) {
         {navItem.map((item) => (
           <ListItem key={item.route} disablePadding>
             <ListItemButton sx={{ textAlign: "center" }}>
-              <ListItemText primary={item.label} />
+              <ListItemText
+                onClick={() => router.push(item.route)}
+                primary={item.label}
+              />
             </ListItemButton>
           </ListItem>
         ))}
@@ -82,7 +88,11 @@ export default function Navbar({ window }: Props) {
             </Typography>
             <Box sx={{ display: { xs: "none", sm: "block" } }}>
               {navItem.map((item) => (
-                <Button key={item.route} sx={{ color: "#fff" }}>
+                <Button
+                  key={item.route}
+                  sx={{ color: "#fff" }}
+                  onClick={() => router.push(item.route)}
+                >
                   {item.label}
                 </Button>
               ))}
